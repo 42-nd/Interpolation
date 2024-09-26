@@ -1,4 +1,4 @@
-﻿#include "gen_grid.h"
+#include "gen_grid.h"
 #include "Cubic_interpolation_spline_1D.h"
 #include <iostream> 
 #include <cmath>
@@ -90,10 +90,10 @@ int main() {
 
     Com_Methods::Cubic_Interpolation_Spline_1D spline_h2;
     spline_h2.Update_Spline(grid_h2, values);
-    std::vector<Com_Methods::Point> intermediate_points_h2 = generate_intermediate_points(grid_h2, 1);
+    //std::vector<Com_Methods::Point> intermediate_points_h2 = generate_intermediate_points(grid_h2, 1);
 
-    for (const auto& point : intermediate_points_h2) {
-        spline.Get_Value(point, result);
+    for (const auto& point : intermediate_points_h) {
+        spline_h2.Get_Value(point, result);
         double x = point.x();
         double f_x = cos(x) + sin(x);
         double f_prime_x = -sin(x) + cos(x);
@@ -138,10 +138,10 @@ int main() {
 
     Com_Methods::Cubic_Interpolation_Spline_1D spline_h4;
     spline_h4.Update_Spline(grid_h4, values);
-    std::vector<Com_Methods::Point> intermediate_points_h4 = generate_intermediate_points(grid_h4, 1);
+    //std::vector<Com_Methods::Point> intermediate_points_h4 = generate_intermediate_points(grid_h4, 1);
 
-    for (const auto& point : intermediate_points_h4) {
-        spline.Get_Value(point, result);
+    for (const auto& point : intermediate_points_h) {
+        spline_h4.Get_Value(point, result);
         double x = point.x();
         double f_x = cos(x) + sin(x);
         double f_prime_x = -sin(x) + cos(x);
